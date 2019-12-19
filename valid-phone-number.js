@@ -13,7 +13,6 @@ validPhoneNumber("(1111)555 2345")  => returns false
 validPhoneNumber("(098) 123 4567")  => returns false */
 
 function validPhoneNumber(phoneNumber){
-    let rigthParenthesis = phoneNumber.indexOf("(")
     let leftParenthesis = phoneNumber.indexOf(")")
     if (phoneNumber.length === 14 && phoneNumber[1] > 0) {
       if (leftParenthesis === 4) {
