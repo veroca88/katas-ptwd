@@ -1,3 +1,5 @@
+//NOTE PRACTICE THIS EXERCISE TO REDUCE
+
 // From the array of given trash, make sure you put every item goes into the right bin. 
 // If an item happens to be dirty, it should go to the generic bin, regardless of material.
 
@@ -93,3 +95,26 @@ function recicleMachine (arr) {
   }
   
   recicleMachine(trash)
+
+
+//// DIfferent response ///
+
+trash.forEach(tr => {
+  if (tr.dirty === true) {
+    trashBins.black.push(tr.name);
+  }
+  else {
+    trashBins[binColorMap[tr.material]].push(tr.name)
+  }
+})
+
+/// Other Response ///
+
+// acc is trashbin, acc is an array
+
+trash.reduce((acc, val) =>
+  val.dirty ?
+  (acc.black.push(val.name), acc)
+  :
+  (acc[binColorMap[val.material]].push(val.name), acc)
+  , trashBins)
